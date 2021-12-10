@@ -1,0 +1,23 @@
+4 Principles:
+
+1. Fluid Layouts
+- To allow webpage to adapt to the current viewport width (or even height)
+- Use % (or vh / vw) unit instead of px for elements that should adapt to viewport (usually layout)
+- Use max-width instead of width
+    Layout Types:
+    1. Float Layouts
+        - The old way of building layouts of all sizes, using the float CSS property. Still used but getting outdated.
+    2. Flexbox
+        - Modern way of laying out elements in 1-dimensional row without using floats. Perfect for component layouts
+    3. CSS Grid
+        For laying out elements in a fully-fledged 2 dimensional-grid. Perfect f or page layouts and complex components
+
+2. Responsive Units
+- Use rem unit instead of px for most lengths
+- To make it easy to scale the entire layout down (or up) automatically
+
+3. Flexible Images
+- By default, images don't scale automatically as we change the viewport, se we need to fix that- Always use % for image dimensions together with the max-width property
+
+4. Media Queries
+- To change CSS styles on certain viewport widths (called breakpoints)
