@@ -1,67 +1,73 @@
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all 0.2s;
-  position: relative;
-  font-size: $default-font-size;
+.btn {
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: $default-font-size;
 
-  /* transition: all; applies animation to all transition property has to be on the initial state*/
-}
+    //Change for the <button> element
+    border: none;
+    cursor: pointer;
+  }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
-  /* box shadow properties: first is offset in X direction; second is offset in Y direction; third value is blur; fourth is rgba with transparency value */
-}
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-.btn:active {
-  transform: translateY(-3px);
-  box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
-  /* related to the initial link state */
-}
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
 
-.btn--white {
-  background-color: $color-white;
-  color: $color-grey-dark;
-}
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
 
-/*pseduo elements enable the styling of certain parts of the elements.*/
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
 
-.btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
+    &::after {
+      background-color: $color-white;
+    }
+  }
 
-  /* idea is to put a virtual element right after the element we are selecting and we can style the element...looks exactly like the button we already have but ee put it behind the button and when we hover out of the button psuedo element goes back behind the button...this :after pseudo element is treated like a child of the button */
-}
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
 
-.btn--white::after {
-  background-color: $color-white;
-}
+    &::after {
+      background-color: $color-primary;
+    }
+  }
 
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
 
-  /* use opacity 0 to fade something out completely */
-}
-
-.btn--animated {
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards;
-
-  /* animation-fill-mode automatically applies the styles of the 0% before the animation starts...in this case, moveInBottom */
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
 }
 
 .btn-text {
@@ -75,12 +81,14 @@
     padding: 3px;
     transition: all 0.2s;
   }
+
   &:hover {
     background-color: $color-primary;
-    color: white;
+    color: $color-white;
     box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
     transform: translateY(-2px);
   }
+
   &:active {
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
     transform: translateY(0);
