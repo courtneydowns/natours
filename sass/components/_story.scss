@@ -30,13 +30,9 @@
 
     @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
       -webkit-clip-path: circle(50% at 50% 50%);
-      clip-path: circle(
-        50% at 50% 50%
-      ); //use exact same values of shape outside to get the circle
+      clip-path: circle(50% at 50% 50%);
       -webkit-shape-outside: circle(50% at 50% 50%);
-      shape-outside: circle(
-        50% at 50% 50%
-      ); //50% is the radius, and 50% and 50% is the center of the circle vertically and horizontally..defines where the content flows around the element
+      shape-outside: circle(50% at 50% 50%);
       border-radius: none;
     }
 
